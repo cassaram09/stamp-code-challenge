@@ -12,6 +12,12 @@
   src: url('../fonts/Roboto-Regular.ttf');
 }
 
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: url('../fonts/Roboto-Thin.ttf');
+}
+
+
 /* Text Defaults */
 a, p, span, li, input {
 	font-family: 'Roboto-Regular', sans-serif;
@@ -24,7 +30,7 @@ ul, ol, li {
 
 a {
 	text-decoration: none;
-	transition: 250ms all ease-in-out;
+	transition: 250ms opacity ease-in-out;
 }
 
 a:hover {
@@ -75,10 +81,87 @@ body {
 
 .header {
 	width: 100%;
-  background: rgba(100,100,100, 0.7);
   z-index: 2;
   flex: 0 0 100px;
+	display: flex;
+	align-items: center;
 }
+
+.header__logo{
+	flex: 1;
+  display: flex;
+}
+
+.header__navigation{
+	flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.header__navigation ul{
+	display: flex;
+}
+
+.header__navigation ul li{
+	padding: 0px 20px;
+}
+
+.header__navigation ul li a{
+	font-size: 20px;
+	font-family: 'Roboto-Thin';
+}
+
+.header__button-wrapper{
+	flex: 1;
+	justify-content: flex-end;
+   display: flex;
+}
+
+.header__button {
+  width: 28px;
+  height: 19px;
+  cursor: pointer;
+  z-index: 100;
+  -webkit-transition: all .25s ease;
+  transition: all .25s ease;
+  z-index: 1010;
+}
+
+.header__button span {
+  background: #fff;
+  height: 2px;
+  border-radius: 1px;
+  width: 100%;
+  position: relative;
+  -webkit-transition: all 250ms ease;
+  transition: all 250ms ease;
+  cursor: pointer;
+  display: block;
+}
+
+.header__button span:nth-of-type(2), 
+.header__button span:nth-of-type(3) {
+  margin-top: 6px;
+}
+
+.header__button.active .-top {
+  -webkit-transform: translateY(6px) translateX(0) rotate(45deg);
+  transform: translateY(6px) translateX(0) rotate(45deg);
+  background: #fff;
+}
+
+.header__button.active .-middle {
+  opacity: 0;
+  background:  #fff;
+}
+
+.header__button.active .-bottom {
+  -webkit-transform: translateY(-6px) translateX(0) rotate(-45deg);
+          transform: translateY(-6px) translateX(0) rotate(-45deg);
+  background:  #fff;
+}
+
+
 
 .hero {
 	flex: 1;
@@ -102,12 +185,11 @@ body {
 .footer__credit{
 	flex: 0 0 240px;
   font-size: 14px;
-  font-family: 'Avenir';
+  font-family: 'Roboto-Thin';
 }
 
 .footer__navigation{
 	flex: 1;
-  
   justify-content: flex-end;
   display: flex;
 }
