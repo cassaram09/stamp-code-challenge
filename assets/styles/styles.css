@@ -58,14 +58,14 @@ input {
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Avenir", 'Nunito', sans-serif;
 	color: #fff;
+	margin: 0px;
 }
 
 
 /* Styles */
 body {
 	position: relative;
-	display: flex;
-	flex-direction: column;
+	min-height: 800px;
 	height: 100vh;
 }
 
@@ -78,17 +78,17 @@ body {
 .container-narrow {
 	max-width: 1160px;
 	margin: 0px auto;
-	padding: 0px 20px;
+	padding: 0px 40px;
 }
 
 
 .background {
 	background: url('../images/image.jpeg') center center;
 	background-size: cover;
-	height: 100vh;
+	height: 100%;
   width: 100%;
-  z-index: 1;
   position: absolute;
+  z-index: -1;
 }
 
 .background__mask {
@@ -102,7 +102,7 @@ body {
 .header {
 	width: 100%;
   z-index: 2;
-  flex: 0 0 100px;
+  height: 100px;
 	display: flex;
 	align-items: center;
 }
@@ -134,7 +134,7 @@ body {
 .header__button-wrapper{
 	flex: 1;
 	justify-content: flex-end;
-   display: flex;
+  display: flex;
 }
 
 .header__button {
@@ -142,9 +142,13 @@ body {
   height: 19px;
   cursor: pointer;
   z-index: 100;
-  -webkit-transition: all .25s ease;
-  transition: all .25s ease;
+  -webkit-transition: opacity 200ms ease;
+  transition: opacity 200ms ease;
   z-index: 1010;
+}
+
+div.header__button:hover{
+	opacity: 0.5;
 }
 
 .header__button span {
@@ -153,8 +157,6 @@ body {
   border-radius: 1px;
   width: 100%;
   position: relative;
-  -webkit-transition: all 250ms ease;
-  transition: all 250ms ease;
   cursor: pointer;
   display: block;
 }
@@ -164,33 +166,18 @@ body {
   margin-top: 6px;
 }
 
-.header__button.active .-top {
-  -webkit-transform: translateY(6px) translateX(0) rotate(45deg);
-  transform: translateY(6px) translateX(0) rotate(45deg);
-  background: #fff;
-}
-
-.header__button.active .-middle {
-  opacity: 0;
-  background:  #fff;
-}
-
-.header__button.active .-bottom {
-  -webkit-transform: translateY(-6px) translateX(0) rotate(-45deg);
-          transform: translateY(-6px) translateX(0) rotate(-45deg);
-  background:  #fff;
-}
-
-
-
 .hero {
 	flex: 1;
 	width: 100%;
 	z-index: 2;
-	height: 366px;
 	display: flex;
   align-items: center;
   justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
 }
 
 .hero__copy {
@@ -206,6 +193,7 @@ body {
 	font-size: 20px;
 	margin-top: 25px;
 	line-height: 35px;
+	max-width: 430px;
 }
 
 .hero__signup-form{
@@ -220,6 +208,7 @@ body {
 .hero__signup-form__inner{
   width: 100%;
   max-width: 460px;
+  display: block;
 }
 
 .hero__signup-form__title {
@@ -298,7 +287,13 @@ input.hero__signup-form__field__submit {
   border-bottom-left-radius: 8px;
 	border-bottom-right-radius: 8px;
 	border: 2px solid #2C99ED;
+	transition: opacity 200ms ease-in-out;
 }
+
+input.hero__signup-form__field__submit:hover {
+  opacity: 0.8;
+}
+
 
 .hero__signup-form__note{
 	text-align: center;
@@ -319,13 +314,18 @@ input.hero__signup-form__field__submit {
 .footer {
 	width: 100%;
   z-index: 2;
-  flex: 0 0 60px;
+  height: 60px;
   display: flex;
   align-items: center;
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
 }
 
 .footer__credit{
-	flex: 0 0 240px;
+	flex: 1;
   font-size: 14px;
   font-family: 'Roboto-Thin';
 }
@@ -341,7 +341,7 @@ input.hero__signup-form__field__submit {
 }
 
 .footer__navigation ul li{
-	padding: 0px 20px;
+	padding: 20px
 }
 
 .footer__navigation ul li a{
@@ -350,4 +350,84 @@ input.hero__signup-form__field__submit {
 	font-family: 'Avenir', 'Nunito';
 }
 
+/* Responsive */
 
+@media only screen and (max-width: 900px) {
+	body {
+		min-height: 1000px;
+	}
+
+	.hero {
+		display: block;
+	}
+
+	.hero__copy{
+		text-align: center;
+	}
+
+	.hero__copy h1{
+		font-size: 60px;
+		line-height: 70px;
+		max-width: 500px;
+    margin: 0px auto 20px;
+	}
+
+	.hero__copy p{
+		max-width: 500px;
+    margin: 0px auto;
+    margin-bottom: 35px;
+	}
+
+
+	.hero__signup-form{
+		align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.footer{
+		height: auto;
+	}
+
+	.hero__copy h1{
+		font-size: 50px;
+		line-height: 60px;
+	}
+
+	.header__navigation {
+		display: none;
+	}
+
+	.footer {
+		padding: 20px;
+	}
+
+	.footer__credit {
+		font-size: 12px;
+	}
+	.footer__navigation ul li {
+		padding: 5px 10px;
+		font-size: 12px;
+	}
+}
+
+@media only screen and (max-width: 500px) {
+	body {
+		min-height: 1100px;
+	}
+
+	.hero {
+		top: 46%;
+	}
+
+	.hero__copy h1{
+		font-size: 40px;
+		line-height: 50px;
+	}
+
+	.footer__navigation ul {
+		display: block;
+	}
+}
