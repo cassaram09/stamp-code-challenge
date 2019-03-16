@@ -35,22 +35,39 @@
 			</div>
 		</div>
 
-  	<div class="hero container">
+  	<div class="hero container-narrow">
   		<div class="hero__copy">
   			<h1>Simple Way to Organize Your Inspirations</h1>
-  			<p>I think what motivates people is not great hate, but great love for other people. </p>
+  			<p>I think what motivates people is not great hate,<br/>but great love for other people. </p>
   		</div>
 
   		<div class="hero__signup-form">
-  			<h3>Sign up for free</h3>
-  			<form>
-  				<input type="text" />
-  				<input type="email" />
-  				<input type="password" />
-  				<input type="submit"></input>
+  			
+  			<form class="hero__signup-form__inner">
+  				<h3 class="hero__signup-form__title">Sign up for free</h3>
+
+  				<div class="hero__signup-form__field">
+  					<input class="hero__signup-form__field__name" type="text" placeholder="Name" />
+  				</div>
+
+  				<div class="hero__signup-form__field">
+  					<input class="hero__signup-form__field__email" type="email" placeholder="E-mail" />
+  				</div>
+
+  				<div class="hero__signup-form__field">
+  					<input class="hero__signup-form__field__password" type="password" placeholder="Password" />
+  				</div>
+
+  				<div class="hero__signup-form__field">
+  					<input class="hero__signup-form__field__submit" type="submit" value="Sign up ›"></input>
+  				</div>
+
+  				<p class="hero__signup-form__note">
+  					By clicking "Sign up" I agree to our<br/>
+  					<a class="hero__signup-form__tos" href="#">Terms of Service</a>
+  				</p>
   			</form>
-  			<p>By clicking "Sign up" I agree to our</p>
-  			<a href="#">Terms of Service ></a>
+  			
   		</div>
   	</div>
 
